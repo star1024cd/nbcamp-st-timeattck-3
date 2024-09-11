@@ -88,35 +88,25 @@ function App() {
       <input value={views} onChange={(e) => setViews(e.target.value)} />
       <button onClick={handlePost}>포스팅</button>
       <hr />
-      <div>
-        {profileData &&
-          profileData.map((profile) => {
-            return (
-              <div key={profile.name}>
-                <p>
-                  <b>이름 : </b>
-                  {profile.name}
-                </p>
-              </div>
-            );
-          })}
-      </div>
+
       <div>
         {data &&
           data.map((post) => {
             return (
               <div key={post.id}>
-                <p>
-                  <div>
-                    <b>타이틀 : </b>
-                    {post.title} / <b>뷰 :</b> {post.views}
-                    <button onClick={handleViewComment}>댓글보기</button>
-                  </div>
-                  <div>
-                    <input value={comment} />
-                    <button onClick={handleAddComment}>댓글입력</button>
-                  </div>
-                </p>
+                <div>
+                  <b>타이틀 : </b>
+                  {post.title} / <b>뷰 :</b> {post.views}
+                  <button onClick={handleViewComment}>댓글보기</button>
+                </div>
+                <div>
+                  <input
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                  />
+                  <button onClick={handleAddComment}>댓글입력</button>
+                </div>
+
                 <hr />
               </div>
             );
